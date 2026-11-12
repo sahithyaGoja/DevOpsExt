@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f6fb">
+  <title>Sign in</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: #f4f6fb;
+      color: #172033;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .login-card {
+      width: min(100%, 400px);
+      padding: 36px;
+      border: 1px solid #e5e9f2;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 16px 40px rgb(23 32 51 / 8%);
+    }
+
+    h1 { margin: 0 0 8px; font-size: 1.8rem; }
+    .intro { margin: 0 0 28px; color: #657087; }
+
+    label {
+      display: block;
+      margin: 18px 0 7px;
+      font-size: .9rem;
+      font-weight: 600;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #ccd3e0;
+      border-radius: 8px;
+      font: inherit;
+    }
+
+    input:focus {
+      outline: 3px solid rgb(79 70 229 / 18%);
+      border-color: #4f46e5;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 24px;
+      padding: 13px;
+      border: 0;
+      border-radius: 8px;
+      background: #4f46e5;
+      color: #fff;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    button:hover { background: #4338ca; }
+    button:focus-visible { outline: 3px solid #a5b4fc; outline-offset: 3px; }
+    .message { min-height: 1.4em; margin: 16px 0 0; color: #4b5563; font-size: .9rem; }
+
+    @media (max-width: 420px) {
+      .login-card { padding: 28px 22px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="login-card">
+    <h1>Welcome back</h1>
+    <p class="intro">Sign in to continue to your account.</p>
+
+    <form id="login-form">
+      <label for="email">Email address</label>
+      <input id="email" name="email" type="email" autocomplete="username" placeholder="you@example.com" required>
+
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+
+      <button type="submit">Sign in</button>
+      <p class="message" id="form-message" role="status" aria-live="polite"></p>
+    </form>
+  </main>
+
+  <script>
+    // Demo behavior only: connect this form to a secure authentication service.
+    document.querySelector("#login-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      document.querySelector("#form-message").textContent =
+        "The page is ready. Connect an authentication service to sign in.";
+    });
+  </script>
+</body>
+</html>
